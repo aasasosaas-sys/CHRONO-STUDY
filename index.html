@@ -4481,7 +4481,8 @@ ${dailyLogsSummary.join('\n')}
             const baseSubjects = Array.isArray(appData.subjects) && appData.subjects.length > 0
                 ? appData.subjects
                 : cloneJson(initial.subjects);
-            appData.subjects = mergeSubjectsSmart(initial.subjects, baseSubjects).map((subject, idx) => ({
+            // 修正後（baseSubjectsをそのまま使用）
+            appData.subjects = baseSubjects.map((subject, idx) => ({
                 id: subject.id || `subj-${idx + 1}`,
                 name: subject.name || `科目${idx + 1}`,
                 color: subject.color || '#3b82f6',
